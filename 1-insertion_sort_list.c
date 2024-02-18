@@ -13,12 +13,14 @@ void insertion_sort_list(listint_t **list)
 
 	if (!list || !*list || !(*list)->next)
 		return;
+
 	for (i = (*list)->next; i != NULL; i = i->next)
 	{
 		tmp = i;
 		while (tmp->prev != NULL && tmp->n < tmp->prev->n)
 		{
 			tmp->prev->next = tmp->next;
+
 			if (tmp->next != NULL)
 			{
 				tmp->next->prev = tmp->prev;
@@ -26,15 +28,17 @@ void insertion_sort_list(listint_t **list)
 				tmp->prev = tmp->prev->prev;
 				tmp->next->prev = tmp;
 			}
+
 			if (tmp->prev != NULL)
 			{
 				tmp->prev->next = tmp;
 			}
+
 			else
 			{
 				*list = tmp;
 			}
-				print_list((const listint_t *)*list);
 		}
+		print_list((const listint_t *) *list);
 	}
 }
