@@ -59,7 +59,11 @@ void _Quicksort(int *array, size_t size, int st, int nd)
 	{
 		pivot = Lomuto_partition(array, size, st, nd);
 
+
+		if (pivot > st)
 		_Quicksort(array, size, st, pivot - 1);
+
+		if(pivot + 1 < nd)
 		_Quicksort(array, size, pivot + 1, nd);
 	}
 }
